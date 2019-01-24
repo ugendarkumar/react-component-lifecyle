@@ -28,8 +28,10 @@ class App extends Component {
 
   shouldComponentUpdate(nextProps,nextState){
     console.log('[UPDATE App.js] inside shouldComponentUpdate()', nextProps,nextState);
-    return nextProps !== this.props.persons;
-  }
+  //  return nextProps !== this.props.persons;
+  
+    return nextState.persons !== this.state.persons || nextState.showPersons !== this.state.showPersons;  
+}
 
   componentWillUpdate(nextProps,nextState){
     console.log('[UPDATE App.js] inside componentWillUpdate()', nextProps,nextState);
@@ -85,6 +87,7 @@ if (this.state.showPersons) {
     
     return (
       <div className='App'>
+      <button onClick = {() => this.setState({showPersons:true})}>Show persons</button>
       <Cockpit persons = {this.state.persons} showPersons = {this.state.showPersons} clicked = {this.toggleNameHandler} appTitle = {this.props.appTitle}/>
     {persons}
     </div>

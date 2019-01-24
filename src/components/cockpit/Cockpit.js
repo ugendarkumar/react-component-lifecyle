@@ -1,14 +1,14 @@
 import React from 'react';
-
 import './Cockpit.css';
+import Aux from '../hoc/Auxillary';
 
 const Cockpit = (props) => {
 
     const assignedClasses = [];
-    let btnClass = '';
+    let btnClass = "Button";
 
     if(props.showPersons){
-        btnClass ='Red';
+        btnClass = ['Button','Red'].join(' ');
     }
 
     if (props.persons.length <= 2) {
@@ -20,11 +20,11 @@ const Cockpit = (props) => {
     }
 
     return (
-        <div className ="Cockpit">
+        <Aux>
         <h1>{props.appTitle}</h1>
          <p className ={assignedClasses.join(' ')}>This is really working!</p>
          <button className = {btnClass} onClick = {props.clicked}>Toggle persons</button>
-         </div>
+         </Aux>
     )
 };
 

@@ -17,13 +17,19 @@ class Person extends Component{
       }
     render(){
         console.log('[Person.js] Inside render()');
-        return (
+       return (
             <div className = "Person">
             <p onClick = {(event) => this.props.click(this.props.index)}>I am {this.props.name} and I am {this.props.age} </p>
             <input type = "text" onChange = {(event) => this.props.change(event,this.props.personId)} value = {this.props.name} />
             <p>{this.props.children}</p>
             </div>
-        )
+       )
+        //  return   [
+        //     <p key = "1" onClick = {(event) => this.props.click(this.props.index)}>I am {this.props.name} and I am {this.props.age} </p>,
+        //     <input key ="2" type = "text" onChange = {(event) => this.props.change(event,this.props.personId)} value = {this.props.name} />,
+        //     <p key ="3">{this.props.children}</p>
+        //     ]
+        
     }
 }
 
